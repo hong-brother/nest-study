@@ -1,13 +1,12 @@
 import { Global, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { Database } from '../constants/database';
-import { DrizzleModule } from '../common/providers/database/drizzle/drizzle.module';
+import { DatabaseProviders } from '../common/providers/database';
 
-const providers = [ConfigService, DrizzleModule];
+const providers = [ConfigService, ...DatabaseProviders];
 @Global()
 @Module({
   providers,
-  imports: [DrizzleModule],
-  exports: [...providers],
+  imports: [],
+  exports: [...providers, ...DatabaseProviders],
 })
 export class SharedModule {}

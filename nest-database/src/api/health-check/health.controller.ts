@@ -15,11 +15,6 @@ export class HealthController {
   @Get()
   @HealthCheck()
   async check() {
-    return this.healthCheck.check([() => this.http.pingCheck('nestjs', 'https://docs.nestjs.com')]);
-  }
-
-  @Get('/drizzle-mysql')
-  async drizzleMysqlCheck() {
-    return this.healthCheckerService.pingPongMySQL();
+    this.healthCheckerService.pingPong();
   }
 }

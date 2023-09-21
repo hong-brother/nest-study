@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SharedModule } from './shared/shared.module';
 import { HealthModule } from './api/health-check/health.module';
-import { UserDrizzleModule } from './api/users/user.drizzle.module';
 
 @Module({
   imports: [
@@ -12,7 +11,6 @@ import { UserDrizzleModule } from './api/users/user.drizzle.module';
       envFilePath: '.env',
     }),
     HealthModule,
-    UserDrizzleModule,
     SharedModule,
   ],
   controllers: [],
