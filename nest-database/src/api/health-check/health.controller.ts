@@ -6,15 +6,23 @@ import { HealthService } from './health.service';
 @ApiTags('health-check')
 @Controller('health')
 export class HealthController {
-  constructor(
-    private healthCheck: HealthCheckService,
-    private healthCheckerService: HealthService,
-    private http: HttpHealthIndicator,
-  ) {}
+  constructor(private healthCheckerService: HealthService) {}
 
-  @Get()
+  @Get('api')
   @HealthCheck()
   async check() {
-    this.healthCheckerService.pingPong();
+    return this.healthCheckerService.pingPong();
+  }
+
+  @Get('typeorm')
+  @HealthCheck()
+  checkTypeOrm() {
+    return this.healthCheckerService.pingTypeOrm();
+  }
+
+  @Get('drizzle')
+  @HealthCheck()
+  checkDrizzleOrm() {
+    return this.healthCheckerService.pingDrizzleOrm();
   }
 }

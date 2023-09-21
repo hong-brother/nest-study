@@ -6,12 +6,12 @@ services:
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
     ports:
-      - "65432:5432"
+      - "5432:5432"
     networks:
       - postgres
     restart: unless-stopped

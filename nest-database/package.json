@@ -51,6 +51,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "snakecase-keys": "^5.4.6",
+    "typeorm": "^0.3.17",
     "ua-parser-js": "^1.0.35",
     "uuid": "^9.0.0",
     "yaml": "^2.3.1"
